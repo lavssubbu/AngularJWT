@@ -1,0 +1,49 @@
+<div class = "row text-center">
+    <h2> Cart List </h2>
+</div>
+
+<table class = "table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th> Name </th>
+            <th> Shoe Name </th>
+            <th> Type </th>
+            <th> Color </th>
+            <th> Quantity </th>
+            <th> Unit Price </th>
+            <th> Price </th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let item of cart">
+            <td> {{ item.name }} </td>
+            <td> {{ item.shoeName }} </td>
+            <td> {{ item.type }} </td>
+            <td> {{ item.color }} </td>
+            <td> {{ item.quantity }} </td>
+            <td> {{ item.price }} </td>
+            <td> {{ item.quantity * item.price }} </td>
+            <td>
+                <div>
+                    <button (click)="deleteItem(item.cartId)" class="btn btn-danger bi bi-trash3"> Remove </button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <th> Total </th>
+            <th> {{ total }} </th>
+            <td>
+                <div>
+                    <button (click)="proceedToPay()" class="btn btn-success bi bi-cart-check-fill"> Proceed to checkout </button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

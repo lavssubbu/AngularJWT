@@ -1,0 +1,22 @@
+<h2> Delete Shoe Details </h2>
+<div>
+    <div>
+        <label> <b> Shoe ID : </b> </label> {{ shoe.shoeId }}
+    </div>
+    <div>
+        <label> <b> Name : </b> </label> {{ shoe.name }}
+    </div>
+    <div>
+        <label> <b> Type : </b> </label> {{ shoe.type }}
+    </div>
+    <div>
+        <label> <b> Color : </b> </label> {{ shoe.color }}
+    </div>
+    <div>
+        <label> <b> Price : </b> </label> {{ shoe.price }}
+    </div>
+    <br>
+    <div>
+        <button (click)="onSubmit(shoe.name)" class="btn btn-danger">Delete</button>        
+    </div>
+</div>

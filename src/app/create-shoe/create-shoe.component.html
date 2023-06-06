@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="card col-md-6 offset-md-3 offset-md-3">
+        <div class="row">
+            <h2> Add Shoe </h2>
+            <div>
+                <form (ngSubmit) = "onSubmit()">
+                    <div class = "form-group">
+                        <label> Shoe Name </label>
+                        <input type = "text" class = "form-control" id = "name" name = "name" [(ngModel)] = "shoe.name">
+                    </div>
+                    <div class = "form-group">
+                        <label> Type </label>
+                        <input type = "text" class = "form-control" id = "type" name = "type" [(ngModel)] = "shoe.type">
+                    </div>
+                    <div class = "form-group">
+                        <label> Color </label>
+                        <input type = "text" class = "form-control" id = "color" name = "color" [(ngModel)] = "shoe.color">
+                    </div>
+                    <div class = "form-group">
+                        <label> Price </label>
+                        <input type = "text" class = "form-control" id = "price" name = "price" [(ngModel)] = "shoe.price">
+                    </div>
+                    <br>
+                    <div class="text-center">
+                    <button type = "submit" class = "btn btn-success bi bi-pencil"> Add </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

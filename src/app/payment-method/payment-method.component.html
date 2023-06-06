@@ -1,0 +1,59 @@
+<section style="background-color: #f9c9aa;">
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-9 col-lg-7 col-xl-5">
+        <div class="card">
+          <img src="../../assets/DebitCard.jpg"
+            class="card-img-top" alt="Debit Card" />
+          <div class="card-body">
+            <div class="card-title d-flex justify-content-between mb-0">
+              <p class="text-muted mb-0"><b> Total Amount </b></p>
+              <p class="mb-0"><b> ₹ {{ total }} </b></p>
+            </div>
+          </div>
+          <div class="rounded-bottom" style="background-color: #eee;">
+            <div class="card-body">
+              <p class="mb-4">Your payment details</p>
+
+              <!-- Validations -->
+              <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+                <div *ngIf="name.errors?.['required']">
+                  Name is required.
+                </div>
+                <div *ngIf="name.errors?.['minlength'] && name.errors?.['maxlength']">
+                    Name must be 16 characters long.
+                </div>
+              </div>
+              <!---->
+
+              <div class="form-outline mb-3">
+                <input type="text" id="formControlLgXM8" class="form-control"
+                  placeholder="1234 5678 1234 5678" [(ngModel)]="cardNum" required minlength="16" maxlength="16" #name="ngModel" />
+                <label class="form-label" for="formControlLgXM8">Card Number</label>
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-6">
+                  <div class="form-outline">
+                    <input type="password" id="formControlLgExpk8" class="form-control"
+                      placeholder="MM/YYYY" />
+                    <label class="form-label" for="formControlLgExpk8">Expire</label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-outline">
+                    <input type="password" id="formControlLgcvv8" class="form-control" placeholder="Cvv" 
+                    [(ngModel)]="cvv" required minlength="3" maxlength="3" />
+                    <label class="form-label" for="formControlLgcvv8">Cvv</label>
+                  </div>
+                </div>
+              </div>
+
+              <button (click)="paymentStatus()" class="btn btn-success btn-block bi bi-cash-coin"> Proceed to pay ₹{{ total }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

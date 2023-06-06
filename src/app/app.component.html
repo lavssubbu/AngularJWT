@@ -1,0 +1,17 @@
+<div class="p-4 bg-warning bg-gradient">
+  <h1 class="text-center bi bi-steam"><b> Shoe Spot</b></h1>
+</div>
+<nav class="navbar sticky-top navbar-expand-sm navbar-dark bg-dark">
+  <a routerLink="shoes" (click)="homePage()" routerLinkActive="inactive" class="nav-link 
+  bi bi-house-door"> Home </a>
+  <a routerLink="shoes" routerLinkActive="active" class="nav-link bi bi-list-check"> Shoe List </a>
+  <a routerLink="create-shoe" routerLinkActive="active" class="nav-link bi bi-pencil"> Create Shoe</a>
+  <a routerLink="cart" routerLinkActive="active" class="nav-link bi bi-cart"> Cart </a>
+  <a routerLink="#" routerLinkActive="active" class="nav-link bi bi-info-circle"> About </a>
+  <div class="ms-auto">
+  <a routerLink="login" (click)="onLogoutClick()" routerLinkActive="active"
+   class="nav-link bi bi-box-arrow-in-right"> {{ btn_text }} </a>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

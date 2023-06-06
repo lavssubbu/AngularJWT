@@ -1,0 +1,15 @@
+a{
+    color: rgba(255, 255, 255, 0.836);
+}
+
+a:hover{
+    color: white;
+}
+
+.active{
+    border-bottom: 3px solid rgb(60, 255, 0);      
+}
+
+a:focus{
+    color:rgb(60, 255, 0)
+}

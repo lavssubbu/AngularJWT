@@ -1,0 +1,21 @@
+<div class="d-flex flex-column">
+    <h2> Shoe Details </h2>
+    <div class="p-2">
+        <label> <b> Shoe ID: </b> </label> {{ shoe.shoeId }}
+    </div>
+    <div class="p-2">
+        <label> <b> Shoe Name: </b> </label> {{ shoe.name }}
+    </div>
+    <div class="p-2">
+        <label> <b> Shoe Type: </b> </label> {{ shoe.type }}
+    </div>
+    <div class="p-2">
+        <label> <b> Shoe Color: </b> </label> {{ shoe.color }}
+    </div>
+    <div class="p-2">
+        <label> <b> Shoe Price: </b> </label> {{ shoe.price }}
+    </div>
+    <div class="p-2" *ngIf="!isAdmin">
+        <button (click)="addDetailsToCart(shoe.shoeId)" class="btn btn-success bi bi-bag-check"> Add to Cart</button>
+    </div>
+</div>

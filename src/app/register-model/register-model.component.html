@@ -1,0 +1,120 @@
+<section class="vh-100" style="background-color: #eee;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+
+                <form class="mx-1 mx-md-4">
+
+                  <!-- Validations -->
+                  <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+                    <div *ngIf="name.errors?.['required']">
+                      Name is required.
+                    </div>
+                    <div *ngIf="name.errors?.['minlength']">
+                        Name must be at least 4 characters long.
+                    </div>
+                  </div>
+                  <!---->
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fa fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="adminName" class="form-control" [(ngModel)]="register.username" 
+                      name="adminName" required minlength="4" #name="ngModel" />
+                      <label class="form-label" for="adminName">Your Name</label>
+                    </div>
+                  </div>
+
+                  <!-- Validations -->
+                  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+                    <div *ngIf="email.errors?.['required']">
+                      Email is required.
+                    </div>
+                    <div *ngIf="email.errors?.['pattern']">
+                        Enter a valid email.
+                    </div>
+                  </div>
+                  <!---->
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fa fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="email" id="adminEmail" class="form-control" [(ngModel)]="register.email" 
+                      name="adminEmail" #email="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" />
+                      <label class="form-label" for="adminEmail">Your Email</label>
+                    </div>
+                  </div>
+
+                  <!--Validations-->
+                  <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                    <div *ngIf="password.errors?.['required']"> Password is required. </div>
+                    <div *ngIf="password.errors?.['pattern']"> Must contain at least one number and one uppercase and lowercase letter,
+                        and at least 8 or more characters.</div>
+                  </div>
+                  <!---->
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fa fa-lock fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" id="adminPass" class="form-control" [(ngModel)]="register.password" 
+                      name="adminPass" required #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
+                      <label class="form-label" for="adminPass">Password</label>
+                    </div>
+                  </div>
+
+                  <!--Validations-->
+                  <div *ngIf="confirmpassword.invalid && (confirmpassword.dirty || confirmpassword.touched)" class="alert alert-danger">
+                    <div *ngIf="confirmpassword.errors?.['required']"> Confirm Password is required. </div>
+                    <div *ngIf="confirmpassword.errors?.['pattern']"> Password & Confirm Password does not match. </div>
+                  </div>
+                  <!---->
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fa fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" id="adminPassRepeat" class="form-control" [(ngModel)]="repeatPass" 
+                      name="adminPassRepeat" required #confirmpassword="ngModel" pattern="{{ register.password }}" />
+                      <label class="form-label" for="adminPassRepeat">Repeat your password</label>
+                    </div>
+                  </div>
+
+                  <div class="form-check d-flex justify-content-center mb-5">
+                    <label class="form-check-label" for="form2Example3">
+                      Already a user? <a class="text-primary" (click)="goToLoginPage()">Login</a>
+                    </label>
+                  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button (click)="onSubmit()" type="button" class="btn btn-primary btn-lg">Register</button>
+                  </div>
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button [disabled]="isDisabled" (click)="registerAdmin()" type="button" class="btn btn-primary btn-lg">Register as Admin</button>
+                  </div>
+
+                </form>
+
+              </div>
+              <!--Admin pass-->
+              <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                <button (click)="passKey()" type="button" class="btn btn-primary btn-lg">Pass Key</button>
+              </div>
+
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                  class="img-fluid" alt="Sample image">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+<div class = "row text-center">
+    <h4 style="color:red">{{ title }}</h4>
+    <h2> Shoe List </h2>
+</div>
+
+<table class = "table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th> Shoe ID </th>
+            <th> Name </th>
+            <th> Type </th>
+            <th> Color </th>
+            <th> Price </th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let shoe of shoes">
+            <td> {{ shoe.shoeId }} </td>
+            <td> {{ shoe.name }} </td>
+            <td> {{ shoe.type }} </td>
+            <td> {{ shoe.color }} </td>
+            <td> {{ shoe.price }} </td>
+            <td>
+                <div *ngIf="isAdmin; else userRole">
+                    <button (click)="updateShoe(shoe.shoeId)" class="btn btn-success bi bi-chevron-double-up"> Update </button>
+                    <button (click)="deleteShoe(shoe.shoeId)" class="btn btn-danger bi bi-trash3"> Delete </button>
+                    <button (click)="shoeDetails(shoe.shoeId)" class="btn btn-primary bi bi-card-checklist"> Details </button>
+                </div>
+                <ng-template #userRole>
+                    <button (click)="shoeDetails(shoe.shoeId)" class="btn btn-primary bi bi-binoculars"> View Details</button>
+                    <button (click)="addDetailsToCart(shoe.shoeId)" 
+                    class="btn btn-success bi bi-bag-check"> Add to Cart </button>
+                </ng-template>
+            </td>
+        </tr>
+        {{ isAdmin }}
+    </tbody>
+</table>
+
